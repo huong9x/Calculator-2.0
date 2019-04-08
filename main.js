@@ -1,11 +1,42 @@
+const Koa = require('koa');
+const app = new Koa();
 
 const Calculator = require('./calculator');
+const cal = new  Calculator();
 
-let cal = new  Calculator();
+const numberFilterMiddleware = async (context, next) => {
+    const firstNum  = context.query.firstNum;
+    const secondNum = context.query.secondNum;
+    const op        = context.query.op;
+    if (firstNum, secondNum, op) {
+        await next();
+    } else {
+        context.body = {
+            Calculator : 'Missing or corrupt elements!'
+        }
+    }
+    
+};
 
-try {
-    console.log(cal.do(process.argv[2], process.argv[3], process.argv[4]));
-} catch (e) {
-    console.log(e.name + ': ' + e.message);
+const opFilterMiddleware = async (context) => {
+    const firstNum  = parseInt(context.query.firstNum);
+    const secondNum = parseInt(context.query.secondNum);
+    const op        = context.query.op;
+
+    if (!cal.operators.hasOwnProperty(op)) {
+        context.body    = {
+            Result : 'Not Supported, Comming soon!'
+        }
+    } else {
+        let result      = cal.do(op, firstNum, secondNum);
+        context.body    = {
+            Result : firstNum + ' ' + op + ' ' + secondNum + ' = ' + result
+        }
+    }
 }
-// console.log(process.argv);
+
+app.use(numberFilterMiddleware);
+app.use(opFilterMiddleware);
+
+app.listen(4000);
+

@@ -1,7 +1,7 @@
 
-const calculator = require('./calculator');
+const Calculator = require('./calculator');
 
-var cal = new  calculator();
+let cal = new  Calculator();
 
 try {
     console.log(cal.do(process.argv[2], process.argv[3], process.argv[4]));

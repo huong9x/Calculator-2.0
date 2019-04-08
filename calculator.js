@@ -12,7 +12,7 @@ class Calculator {
     }
     do(operator, firstNum, secondNum) {
         if (!this.operators.hasOwnProperty(operator)) {
-            throw "Comming soon!"
+            throw new Error('Not Supported, Comming soon!');
         } else
         return this.operators[operator].operate(firstNum, secondNum)
     }

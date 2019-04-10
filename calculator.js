@@ -6,7 +6,7 @@ class Calculator {
     constructor() {
         this.operators = {
             'add' : new operators.Add,
-            'mul' : new operators.Div,
+            'div' : new operators.Div,
             'pow' : new operators.Pow,
         };
     }

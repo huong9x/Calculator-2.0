@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/huong9x/Calculator-2.0#readme",
   "dependencies": {
+    "@sphinx-software/division-operator": "^1.2.0",
     "knex": "^0.16.3",
     "koa": "^2.7.0",
     "mysql": "^2.16.0"

@@ -1,13 +1,12 @@
-
 const operators = require('./Operator/operators');
 
 
 class Calculator {
     constructor() {
         this.operators = {
-            'add' : new operators.Add,
-            'div' : new operators.Div,
-            'pow' : new operators.Pow,
+            'add' : new operators.Add(),
+            'div' : new operators.Div(),
+            'pow' : new operators.Pow(),
         };
     }
     do(operator, firstNum, secondNum) {
